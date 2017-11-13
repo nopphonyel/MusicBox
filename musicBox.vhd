@@ -44,6 +44,7 @@ signal add5 : STD_LOGIC := '0';
 signal add10 : STD_LOGIC := '0';
 signal returnChange : STD_LOGIC := '0';
 signal test : INTEGER := '0';
+signal test2 : INTEGER := '0';
 
 signal 
 begin 
