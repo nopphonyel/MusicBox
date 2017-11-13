@@ -43,6 +43,8 @@ signal add1 : STD_LOGIC := '0';
 signal add5 : STD_LOGIC := '0';
 signal add10 : STD_LOGIC := '0';
 signal returnChange : STD_LOGIC := '0';
+
+signal 
 begin
 
 
