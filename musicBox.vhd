@@ -43,21 +43,13 @@ signal add1 : STD_LOGIC := '0';
 signal add5 : STD_LOGIC := '0';
 signal add10 : STD_LOGIC := '0';
 signal returnChange : STD_LOGIC := '0';
-signal test : INTEGER := '0';
 
-signal 
+-- STATE = 0 is wait state
+signal STATE : INTEGER := 0;
+
 begin 
 
 
 
 
 end Behavioral;
-
-
-
--- STATE = 0 is wait state
-signal STATE : INTEGER := 0;
-signal test : INTEGER := '0';
-signal test2 : INTEGER := '0';
-
-signal 
