@@ -19,6 +19,10 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+USE ieee.std_logic_unsigned.ALL;
+use IEEE.numeric_std.all;
+use IEEE.std_logic_arith.all;
+use work.seg7_pack.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -35,7 +39,9 @@ entity musicBox is
            pb3 : in  STD_LOGIC;
            pb4 : in  STD_LOGIC;
            pb5 : in  STD_LOGIC;
+			  clk : in  STD_LOGIC;
            dipsw : in  STD_LOGIC_VECTOR(3 downto 0);
+			  digit_disp : out  STD_LOGIC_VECTOR(3 downto 0);
 			  seg7_disp : out  STD_LOGIC_VECTOR(7 downto 0)
 			);
 end musicBox;
@@ -80,33 +86,33 @@ scan_think : process(disp_scan_clk)
 		case sel_disp_sig is
 			when "00" =>
 				if mode = 0 then
-				seg7_disp <= display7SegDot(conv_integer(counterTime(0)));
+				seg7_disp <= display7SegDot(counterTime(0));
 				else
-				seg7_disp <= display7Seg(conv_integer(counterCode(0)));
+				seg7_disp <= display7Seg(counterCode(0));
 				end if;
 			when "01" =>
 				if mode = 0 then
-				seg7_disp <= display7SegDot(conv_integer(counterTime(1)));
+				seg7_disp <= display7SegDot(counterTime(1));
 				else
-				seg7_disp <= display7Seg(conv_integer(counterCode(1)));
+				seg7_disp <= display7Seg(counterCode(1));
 				end if;
 			when "10" =>
 				if mode = 0 then
-				seg7_disp <= display7SegDot(conv_integer(counterTime(2)));
+				seg7_disp <= display7SegDot(counterTime(2));
 				else
-				seg7_disp <= display7Seg(conv_integer(counterCode(2)));
+				seg7_disp <= display7Seg(counterCode(2));
 				end if;
 			when "11" =>
 				if mode = 0 then
-				seg7_disp <= display7SegDot(conv_integer(counterTime(3)));
+				seg7_disp <= display7SegDot(counterTime(3));
 				else
-				seg7_disp <= display7Seg(conv_integer(counterCode(3)));
+				seg7_disp <= display7Seg(counterCode(3));
 				end if;
 			when others =>
 				if mode = 0 then
-				seg7_disp <= display7SegDot(conv_integer(counterTime(0)));
+				seg7_disp <= display7SegDot(counterTime(0));
 				else
-				seg7_disp <= display7Seg(conv_integer(counterCode(0)));
+				seg7_disp <= display7Seg(counterCode(0));
 				end if;
 		end case;
 		digit_disp <= sel_disp(sel_disp_sig);

@@ -40,7 +40,6 @@ constant e : std_logic_vector (7 downto 0) := "10011111";
 
 constant a : std_logic_vector (7 downto 0) := "11101110";
 constant d : std_logic_vector (7 downto 0) := "01111010";
-constant d : std_logic_vector (7 downto 0) := "01111010";
 
 constant zero_seg : std_logic_vector (7 downto 0) := "11111100";
 constant one_seg : std_logic_vector (7 downto 0) := "01100000";
@@ -69,8 +68,8 @@ constant nine_dot_seg : std_logic_vector (7 downto 0) := "11110111";
 function displayCoin (signal digit : IN STD_LOGIC_VECTOR(1 downto 0)) return STD_LOGIC_VECTOR;
 function displayBye (signal digit : IN STD_LOGIC_VECTOR(1 downto 0)) return STD_LOGIC_VECTOR;
 function displayAdd (signal digit : IN STD_LOGIC_VECTOR(1 downto 0)) return STD_LOGIC_VECTOR;
-function display7SegDot (signal value : IN INTEGER) return STD_LOGIC_VECTOR;
-function display7Seg (signal value : IN INTEGER) return STD_LOGIC_VECTOR;
+function display7SegDot (signal value : IN STD_LOGIC_VECTOR(3 downto 0)) return STD_LOGIC_VECTOR;
+function display7Seg (signal value : IN STD_LOGIC_VECTOR(3 downto 0)) return STD_LOGIC_VECTOR;
 function sel_disp (signal selector : in std_logic_vector (1 downto 0)) return std_logic_vector;
 
 end seg7_pack;
@@ -140,37 +139,37 @@ begin
 end disPlayAdd;
 
 --For Dot
-function display7SegDot (signal value : IN INTEGER) return STD_LOGIC_VECTOR is
+function display7SegDot (signal value : IN STD_LOGIC_VECTOR(3 downto 0)) return STD_LOGIC_VECTOR is
 begin
 	case value is
-		when 0 => return zero_dot_seg;
-		when 1 => return one_dot_seg;
-		when 2 => return two_dot_seg;
-		when 3 => return three_dot_seg;
-		when 4 => return four_dot_seg;
-		when 5 => return five_dot_seg;
-		when 6 => return six_dot_seg;
-		when 7 => return seven_dot_seg;
-		when 8 => return eight_dot_seg;
-		when 9 => return nine_dot_seg;
+		when "0000" => return zero_dot_seg;
+		when "0001" => return one_dot_seg;
+		when "0010" => return two_dot_seg;
+		when "0011" => return three_dot_seg;
+		when "0100" => return four_dot_seg;
+		when "0101" => return five_dot_seg;
+		when "0110" => return six_dot_seg;
+		when "0111" => return seven_dot_seg;
+		when "1000" => return eight_dot_seg;
+		when "1001" => return nine_dot_seg;
 		when others => return dot_seg;
 	end case;
 end display7SegDot;
 
 --For No Dot
-function display7Seg (signal value : IN INTEGER) return STD_LOGIC_VECTOR is
+function display7Seg (signal value : IN STD_LOGIC_VECTOR(3 downto 0)) return STD_LOGIC_VECTOR is
 begin
 	case value is
-		when 0 => return zero_seg;
-		when 1 => return one_seg;
-		when 2 => return two_seg;
-		when 3 => return three_seg;
-		when 4 => return four_seg;
-		when 5 => return five_seg;
-		when 6 => return six_seg;
-		when 7 => return seven_seg;
-		when 8 => return eight_seg;
-		when 9 => return nine_seg;
+		when "0000" => return zero_seg;
+		when "0001" => return one_seg;
+		when "0010" => return two_seg;
+		when "0011" => return three_seg;
+		when "0100" => return four_seg;
+		when "0101" => return five_seg;
+		when "0110" => return six_seg;
+		when "0111" => return seven_seg;
+		when "1000" => return eight_seg;
+		when "1001" => return nine_seg;
 		when others => return dash_seg;
 	end case;
 end disPlay7seg;
